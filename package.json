@@ -1,0 +1,22 @@
+{
+  "name": "qvit-os-website",
+  "version": "1.0.0",
+  "description": "Official website for QVIT OS — A Quantum-Focused Linux Distribution built at VIT-AP University / TRIAC CoE",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "qvit",
+    "quantum",
+    "linux",
+    "os",
+    "research"
+  ],
+  "author": "K. Sai Abhiram — TRIAC CoE, VIT-AP University",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
