@@ -1,21 +1,30 @@
 {
   "version": 2,
-  "buildCommand": "npm run build || true",
+  "buildCommand": "npm run build",
   "public": false,
   "env": {
     "NODE_ENV": "production"
+  },
+  "functions": {
+    "server.js": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
   },
   "routes": [
     {
       "src": "/assets/(.*)",
       "dest": "/assets/$1",
       "headers": {
-        "cache-control": "public, max-age=7200"
+        "cache-control": "public, max-age=604800"
       }
     },
     {
       "src": "/public/(.*)",
-      "dest": "/public/$1"
+      "dest": "/public/$1",
+      "headers": {
+        "cache-control": "public, max-age=604800"
+      }
     },
     {
       "src": "/(.*)",
