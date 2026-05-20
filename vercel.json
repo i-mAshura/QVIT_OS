@@ -13,17 +13,24 @@
   },
   "routes": [
     {
+      "src": "/assets/.*\\.(png|jpg|jpeg|gif|svg|webp)$",
+      "dest": "/assets/$1",
+      "headers": {
+        "cache-control": "public, max-age=3600"
+      }
+    },
+    {
       "src": "/assets/(.*)",
       "dest": "/assets/$1",
       "headers": {
-        "cache-control": "public, max-age=604800"
+        "cache-control": "public, max-age=86400"
       }
     },
     {
       "src": "/public/(.*)",
       "dest": "/public/$1",
       "headers": {
-        "cache-control": "public, max-age=604800"
+        "cache-control": "public, max-age=86400"
       }
     },
     {
