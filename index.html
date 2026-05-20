@@ -142,21 +142,6 @@
                 </div>
             </div>
 
-            <!-- PHOTO PLACEHOLDER: Installation Image -->
-            <div class="photo-placeholder-wrapper full-width" data-label="OS Installation Image / Installer Screenshot">
-                <div class="photo-placeholder" id="placeholder-boot">
-                    <img src="assets/installation_logo.png?v=2" alt="QVIT OS Installation" class="user-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="placeholder-fallback">
-                        <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                            <circle cx="8.5" cy="8.5" r="1.5" />
-                            <polyline points="21 15 16 10 5 21" />
-                        </svg>
-                        <span class="placeholder-title">Installation Image Placeholder</span>
-                        <span class="placeholder-subtitle">Rename your image to <code>installation_logo.png</code> and place it in the <code>assets/</code> folder</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1011,6 +996,25 @@ print(<span class="string">"Data prepared. Length:"</span>, len(x))
                     <blockquote>
                         "Empowering the next generation of quantum innovators through accessible, standardized computing infrastructure."
                     </blockquote>
+                </div>
+            </div>
+
+            <!-- Development Showcase Section -->
+            <h3 class="subsection-title">Development Journey</h3>
+            <div class="showcase-container">
+                <img src="assets/development_story.png" alt="Development process and team collaboration" class="showcase-image">
+                <div class="showcase-caption">
+                    <div class="development-story">
+                        <p>
+                            <strong>Building QVIT OS</strong> represents a significant collaborative effort to democratize quantum computing access. Our team engineered a comprehensive Linux distribution that seamlessly integrates industry-leading quantum frameworks—Qiskit, PennyLane, TensorFlow Quantum, and Cirq—into a single, production-ready environment.
+                        </p>
+                        <p>
+                            The development process focused on solving critical pain points in quantum research: <strong>dependency conflicts</strong>, <strong>complex environment setup</strong>, and <strong>fragmented workflows</strong>. We architected five isolated Conda environments to prevent version collisions, implemented the innovative <code>quantumctl</code> CLI tool for unified system management, and created the QVIT Dashboard for centralized workspace control.
+                        </p>
+                        <p>
+                            Every component—from the lightweight KDE Plasma desktop to the Ubuntu LTS kernel foundation—was carefully selected to balance performance, reliability, and ease-of-use. The result is a research-grade operating system that empowers students, researchers, and developers to focus on quantum innovation rather than infrastructure complexity.
+                        </p>
+                    </div>
                 </div>
             </div>
 
