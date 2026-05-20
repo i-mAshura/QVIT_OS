@@ -31,6 +31,7 @@
                     <li><a href="#requirements" class="nav-link">Requirements</a></li>
                     <li><a href="#download" class="nav-link btn-download-nav">Download</a></li>
                     <li><a href="#faqs" class="nav-link">FAQs</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                     <li><a href="#authors" class="nav-link">Team</a></li>
                 </ul>
             </nav>
@@ -1042,6 +1043,85 @@ print(<span class="string">"Data prepared. Length:"</span>, len(x))
                     <div class="author-avatar">T</div>
                     <h4>Thangam S</h4>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle">Have questions or feedback? We'd love to hear from you.</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Whether you're interested in contributing to QVIT OS, reporting bugs, or just want to share your feedback about our quantum computing platform, please reach out.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            <div>
+                                <h4>Email</h4>
+                                <p>kollurusaiabhiram2005@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                                <path d="M12 6v6l4 2.4"/>
+                            </svg>
+                            <div>
+                                <h4>Response Time</h4>
+                                <p>We typically respond within 24-48 hours</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            </svg>
+                            <div>
+                                <h4>Organization</h4>
+                                <p>VIT-AP University - TRIAC CoE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" placeholder="Brief subject of your message" required>
+                        <span class="error-message" id="subjectError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Tell us more about your feedback or question..." rows="6" required></textarea>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">Send Message</button>
+                    <span class="form-status" id="formStatus"></span>
+                </form>
             </div>
         </div>
     </section>

@@ -313,6 +313,148 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- CONTACT FORM HANDLER ---
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Validation
+            if (!validateForm(name, email, subject, message)) {
+                return;
+            }
+            
+            // Clear previous status
+            const formStatus = document.getElementById('formStatus');
+            formStatus.classList.remove('show', 'success', 'error');
+            
+            // Disable submit button
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        subject,
+                        message
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
+                    // Success
+                    formStatus.textContent = result.message || 'Thank you! Your message has been sent successfully.';
+                    formStatus.classList.add('show', 'success');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Clear success message after 5 seconds
+                    setTimeout(() => {
+                        formStatus.classList.remove('show');
+                    }, 5000);
+                    
+                    showToast('Message sent successfully! 🎉');
+                } else {
+                    // Error from server
+                    formStatus.textContent = result.error || 'Failed to send message. Please try again.';
+                    formStatus.classList.add('show', 'error');
+                    showToast('Error: ' + (result.error || 'Failed to send'));
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                formStatus.textContent = 'Network error. Please check your connection and try again.';
+                formStatus.classList.add('show', 'error');
+                showToast('Network error. Please try again.');
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    }
+    
+    // Form validation function
+    function validateForm(name, email, subject, message) {
+        let isValid = true;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        // Clear all previous error messages
+        document.querySelectorAll('.error-message').forEach(el => {
+            el.classList.remove('show');
+            el.textContent = '';
+        });
+        document.querySelectorAll('.form-group').forEach(el => {
+            el.classList.remove('error');
+        });
+        
+        // Validate name
+        if (!name || name.length < 2) {
+            showFieldError('name', 'Please enter a valid name');
+            isValid = false;
+        }
+        
+        // Validate email
+        if (!email || !emailRegex.test(email)) {
+            showFieldError('email', 'Please enter a valid email address');
+            isValid = false;
+        }
+        
+        // Validate subject
+        if (!subject || subject.length < 5) {
+            showFieldError('subject', 'Please enter a subject (at least 5 characters)');
+            isValid = false;
+        }
+        
+        // Validate message
+        if (!message || message.length < 10) {
+            showFieldError('message', 'Please enter a message (at least 10 characters)');
+            isValid = false;
+        }
+        
+        return isValid;
+    }
+    
+    // Show field error helper
+    function showFieldError(fieldId, errorMessage) {
+        const field = document.getElementById(fieldId);
+        const errorElement = document.getElementById(fieldId + 'Error');
+        const formGroup = field.closest('.form-group');
+        
+        if (errorElement && formGroup) {
+            errorElement.textContent = errorMessage;
+            errorElement.classList.add('show');
+            formGroup.classList.add('error');
+        }
+    }
+
+    // Clear error when user starts typing
+    document.querySelectorAll('.contact-form input, .contact-form textarea').forEach(field => {
+        field.addEventListener('input', () => {
+            const errorElement = document.getElementById(field.id + 'Error');
+            const formGroup = field.closest('.form-group');
+            if (errorElement && formGroup) {
+                errorElement.classList.remove('show');
+                formGroup.classList.remove('error');
+            }
+        });
+    });
+
     function showToast(message) {
         // Remove existing toast if present
         const existingToast = document.querySelector('.toast-notification');
