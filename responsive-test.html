@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QVIT OS - Responsive Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            padding-top: 100px;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .test-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .grid-item {
+            background: rgba(0, 240, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        @media (max-width: 1024px) {
+            .test-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .test-grid {
+                grid-template-columns: 1fr;
+            }
+            .test-section {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-text">QVIT <span class="accent-text">OS</span></span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#" class="nav-link active">Home</a></li>
+                    <li><a href="#" class="nav-link">About</a></li>
+                    <li><a href="#" class="nav-link">Features</a></li>
+                    <li><a href="#" class="nav-link">Download</a></li>
+                </ul>
+            </nav>
+
+            <button class="mobile-nav-toggle" aria-label="Toggle menu" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="test-container">
+        <h1>Responsive Test Page</h1>
+        <p>Resize your browser to test responsive behavior at different breakpoints:</p>
+        
+        <div class="test-section">
+            <h2>Desktop (> 1024px)</h2>
+            <p>Navigation should be visible in header, Mobile toggle hidden</p>
+        </div>
+
+        <div class="test-section">
+            <h2>Tablet (768px - 1024px)</h2>
+            <p>Navigation should convert to hamburger menu, Grids should be 2 columns</p>
+        </div>
+
+        <div class="test-section">
+            <h2>Mobile (< 768px)</h2>
+            <p>Navigation menu slides in from side, Grids should be single column</p>
+            <div class="test-grid">
+                <div class="grid-item">Item 1</div>
+                <div class="grid-item">Item 2</div>
+                <div class="grid-item">Item 3</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Current Breakpoint Indicator</h2>
+            <div id="breakpoint" style="font-size: 1.2rem; color: var(--primary); font-weight: bold;">
+                Testing...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile navigation
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('open');
+                mobileToggle.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('open');
+                    mobileToggle.classList.remove('active');
+                });
+            });
+        }
+
+        // Breakpoint indicator
+        function updateBreakpoint() {
+            const width = window.innerWidth;
+            let breakpoint = 'Desktop (> 1024px)';
+            if (width < 480) breakpoint = 'Extra Small Mobile (< 480px)';
+            else if (width < 768) breakpoint = 'Mobile (480px - 768px)';
+            else if (width < 1024) breakpoint = 'Tablet (768px - 1024px)';
+            
+            document.getElementById('breakpoint').textContent = `${breakpoint} - Width: ${width}px`;
+        }
+
+        updateBreakpoint();
+        window.addEventListener('resize', updateBreakpoint);
+    </script>
+</body>
+</html>

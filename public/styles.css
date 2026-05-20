@@ -1665,7 +1665,7 @@ code {
 /* Mobile: 481px - 768px */
 @media (max-width: 768px) {
     html {
-        font-size: 15px;
+        font-size: 14px;
     }
     
     .container {
@@ -1679,7 +1679,7 @@ code {
     
     .logo {
         gap: 8px;
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
     .logo-icon {
@@ -1718,7 +1718,7 @@ code {
     }
     
     .nav-link {
-        font-size: 1rem;
+        font-size: 0.95rem;
         text-align: center;
     }
     
@@ -1728,24 +1728,24 @@ code {
     
     /* Hero Section */
     .hero-section {
-        padding-top: 120px;
-        padding-bottom: 60px;
+        padding-top: 100px;
+        padding-bottom: 50px;
         min-height: auto;
     }
     
     .hero-content h1 {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
         line-height: 1.2;
     }
     
     .hero-tagline {
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin-bottom: 1rem;
     }
     
     .hero-description {
-        font-size: 1rem;
-        margin-bottom: 2rem;
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
     }
     
     .hero-buttons {
@@ -1825,12 +1825,16 @@ code {
     }
     
     .section-header {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
     }
     
     /* Badge */
     .badge {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
         padding: 3px 10px;
     }
     
@@ -1840,8 +1844,13 @@ code {
     }
     
     .tag {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         padding: 4px 10px;
+    }
+    
+    .btn {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.9rem;
     }
 }
 

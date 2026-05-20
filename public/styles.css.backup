@@ -1665,7 +1665,7 @@ code {
 /* Mobile: 481px - 768px */
 @media (max-width: 768px) {
     html {
-        font-size: 14px;
+        font-size: 15px;
     }
     
     .container {
@@ -1679,7 +1679,7 @@ code {
     
     .logo {
         gap: 8px;
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
     
     .logo-icon {
@@ -1718,7 +1718,7 @@ code {
     }
     
     .nav-link {
-        font-size: 0.95rem;
+        font-size: 1rem;
         text-align: center;
     }
     
@@ -1728,24 +1728,24 @@ code {
     
     /* Hero Section */
     .hero-section {
-        padding-top: 100px;
-        padding-bottom: 50px;
+        padding-top: 120px;
+        padding-bottom: 60px;
         min-height: auto;
     }
     
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
         line-height: 1.2;
     }
     
     .hero-tagline {
-        font-size: 1rem;
+        font-size: 1.2rem;
         margin-bottom: 1rem;
     }
     
     .hero-description {
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        margin-bottom: 2rem;
     }
     
     .hero-buttons {
@@ -1825,16 +1825,12 @@ code {
     }
     
     .section-header {
-        margin-bottom: 2rem;
-    }
-    
-    .section-header h2 {
-        font-size: 1.6rem;
+        margin-bottom: 3rem;
     }
     
     /* Badge */
     .badge {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
         padding: 3px 10px;
     }
     
@@ -1844,13 +1840,8 @@ code {
     }
     
     .tag {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         padding: 4px 10px;
-    }
-    
-    .btn {
-        padding: 0.7rem 1.4rem;
-        font-size: 0.9rem;
     }
 }
 
@@ -2171,233 +2162,5 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-    }
-}
-
-/* ============================================================
-   FINAL MOBILE RESPONSIVE OVERRIDES - TESTED & VERIFIED
-   ============================================================ */
-
-/* CRITICAL: Mobile Hamburger Menu - Must Show on Mobile */
-@media screen and (max-width: 768px) {
-    .mobile-nav-toggle {
-        display: flex !important;
-    }
-    
-    .nav-menu {
-        position: fixed !important;
-        left: 0 !important;
-        top: 60px !important;
-        width: 100% !important;
-        height: calc(100vh - 60px) !important;
-        background: var(--bg-main) !important;
-        padding: 2rem !important;
-        border-top: 1px solid var(--border-color) !important;
-        transform: translateX(-100%) !important;
-        transition: transform 0.3s ease !important;
-        z-index: 999 !important;
-        overflow-y: auto !important;
-        display: block !important;
-    }
-    
-    .nav-menu.open {
-        transform: translateX(0) !important;
-    }
-    
-    .nav-menu ul {
-        flex-direction: column !important;
-        gap: 1.5rem !important;
-        align-items: center !important;
-    }
-    
-    .nav-link {
-        font-size: 1rem !important;
-        text-align: center !important;
-    }
-}
-
-/* Mobile: 320px - 480px */
-@media screen and (max-width: 480px) {
-    html {
-        font-size: 14px;
-    }
-    
-    .container {
-        padding: 0 0.75rem;
-    }
-    
-    .header-container {
-        height: 50px;
-    }
-    
-    .logo {
-        font-size: 1rem;
-        gap: 6px;
-    }
-    
-    .logo-icon {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .vitap-logo-link {
-        display: none;
-    }
-    
-    .hero-section {
-        padding-top: 80px;
-        padding-bottom: 40px;
-    }
-    
-    .hero-container {
-        grid-template-columns: 1fr !important;
-    }
-    
-    .hero-content h1 {
-        font-size: 1.5rem;
-        line-height: 1.1;
-        margin-bottom: 0.5rem;
-    }
-    
-    .hero-tagline {
-        font-size: 0.95rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .hero-description {
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
-        text-align: left;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-    
-    .btn {
-        width: 100%;
-        padding: 0.8rem 1rem;
-    }
-    
-    .section-header h2 {
-        font-size: 1.3rem;
-    }
-    
-    .section-header .divider {
-        width: 30px;
-    }
-    
-    .about-grid,
-    .comparison-grid,
-    .features-grid,
-    .why-section .comparison-grid {
-        grid-template-columns: 1fr !important;
-    }
-    
-    .about-card,
-    .why-card,
-    .feature-box {
-        padding: 1rem;
-    }
-    
-    #placeholder-desktop,
-    #placeholder-boot {
-        min-height: 180px;
-    }
-    
-    .tag {
-        font-size: 0.65rem;
-    }
-}
-
-/* Tablet: 481px - 768px */
-@media screen and (min-width: 481px) and (max-width: 768px) {
-    html {
-        font-size: 15px;
-    }
-    
-    .container {
-        padding: 0 1rem;
-    }
-    
-    .header-container {
-        height: 60px;
-    }
-    
-    .logo {
-        font-size: 1.1rem;
-        gap: 8px;
-    }
-    
-    .logo-icon {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .vitap-logo-link {
-        display: none;
-    }
-    
-    .hero-section {
-        padding-top: 100px;
-        padding-bottom: 50px;
-    }
-    
-    .hero-container {
-        grid-template-columns: 1fr !important;
-    }
-    
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .btn {
-        width: 100%;
-    }
-    
-    .section-header h2 {
-        font-size: 1.75rem;
-    }
-    
-    .comparison-grid,
-    .features-grid {
-        grid-template-columns: 1fr !important;
-    }
-}
-
-/* Desktop: 769px+ */
-@media screen and (min-width: 769px) {
-    .mobile-nav-toggle {
-        display: none !important;
-    }
-    
-    .nav-menu {
-        display: flex !important;
-        position: static !important;
-        width: auto !important;
-        height: auto !important;
-        background: none !important;
-        padding: 0 !important;
-        border: none !important;
-        transform: none !important;
-        flex: 1;
-        justify-content: center;
-    }
-    
-    .nav-menu ul {
-        flex-direction: row !important;
-        align-items: center !important;
-        gap: 1.8rem !important;
-    }
-    
-    .nav-link {
-        font-size: 0.9rem !important;
-        text-align: left !important;
     }
 }
