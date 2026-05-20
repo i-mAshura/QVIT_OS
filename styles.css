@@ -1544,7 +1544,7 @@ code {
     line-height: 1.7;
     color: var(--text-main);
     margin: 0;
-    text-align: left;
+    text-align: justify;
 }
 
 .development-story p strong {
