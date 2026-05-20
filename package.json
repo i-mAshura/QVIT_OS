@@ -17,6 +17,7 @@
   "author": "K. Sai Abhiram — TRIAC CoE, VIT-AP University",
   "license": "MIT",
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "express": "^4.18.2"
   }
 }
