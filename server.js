@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Initialize Resend with API key
-const resend = new Resend(process.env.RESEND_API_KEY || 're_99i2xLwW_GFgSTLMHodbgeA6JDA1HQcpL');
+const resend = new Resend(process.env.RESEND_API_KEY || 're_2NV6jEvd_E5cRvG2NUzzd1q23ZangZ9Zf');
 
 // ── Middleware ────────────────────────────────────────────────────────────────
 app.use(bodyParser.json());
@@ -76,29 +76,32 @@ app.post('/api/contact', async (req, res) => {
 
         // Send email via Resend
         const response = await resend.emails.send({
-            from: 'QVIT OS <onboarding@resend.dev>',
+            from: 'onboarding@resend.dev',
             to: 'kollurusaiabhiram2005@gmail.com',
             replyTo: email,
             subject: `New Contact Form Submission: ${subject}`,
             html: `
-                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                    <h2>New Contact Form Submission</h2>
-                    <hr style="border: none; border-top: 1px solid #e5e7eb;">
-                    <p><strong>Name:</strong> ${name}</p>
-                    <p><strong>Email:</strong> ${email}</p>
-                    <p><strong>Subject:</strong> ${subject}</p>
-                    <hr style="border: none; border-top: 1px solid #e5e7eb;">
-                    <h3>Message:</h3>
-                    <p>${message.replace(/\n/g, '<br>')}</p>
-                    <hr style="border: none; border-top: 1px solid #e5e7eb;">
-                    <p style="color: #6b7280; font-size: 12px;">
-                        This message was sent from the QVIT OS website contact form.
-                    </p>
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+                    <div style="background: linear-gradient(135deg, #00f0ff 0%, #a855f7 100%); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                        <h2 style="color: white; margin: 0;">📨 New Contact Form Submission</h2>
+                    </div>
+                    <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <p style="margin: 8px 0;"><strong>Name:</strong> ${name}</p>
+                        <p style="margin: 8px 0;"><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+                        <p style="margin: 8px 0;"><strong>Subject:</strong> ${subject}</p>
+                    </div>
+                    <div style="background: #ffffff; border: 1px solid #e5e7eb; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <h3 style="margin-top: 0;">Message:</h3>
+                        <p style="line-height: 1.6; color: #333;">${message.replace(/\n/g, '<br>')}</p>
+                    </div>
+                    <div style="color: #6b7280; font-size: 12px; text-align: center; border-top: 1px solid #e5e7eb; padding-top: 15px;">
+                        <p>This message was sent from the <strong>QVIT OS</strong> website contact form.</p>
+                    </div>
                 </div>
             `,
         });
 
-        console.log('✓ Email sent successfully:', response.id);
+        console.log('✓ Email sent successfully | ID:', response.id, '| To:', 'kollurusaiabhiram2005@gmail.com');
 
         return res.status(200).json({
             success: true,
@@ -106,10 +109,22 @@ app.post('/api/contact', async (req, res) => {
             id: response.id,
         });
     } catch (error) {
-        console.error('✗ Error sending email:', error);
+        console.error('✗ Error sending email:');
+        console.error('  Error Code:', error.code || 'UNKNOWN');
+        console.error('  Error Message:', error.message);
+        console.error('  Full Error:', JSON.stringify(error, null, 2));
+        
+        // Provide more specific error messages
+        let errorMessage = 'Failed to send message. Please try again later.';
+        if (error.message && error.message.includes('API key')) {
+            errorMessage = 'Email service configuration error. Please contact support.';
+        } else if (error.message && error.message.includes('rate')) {
+            errorMessage = 'Too many requests. Please try again in a few minutes.';
+        }
+        
         return res.status(500).json({
             success: false,
-            error: 'Failed to send message. Please try again later.',
+            error: errorMessage,
         });
     }
 });
