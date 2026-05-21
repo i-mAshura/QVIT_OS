@@ -2540,4 +2540,31 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
         max-width: 240px;
         line-height: 1.4;
     }
+    
+    /* Terminal Interface Mobile Improvements */
+    #placeholder-terminal {
+        min-height: 250px;
+        aspect-ratio: 3 / 2;
+    }
+    
+    .cli-terminal {
+        height: 320px;
+    }
+    
+    .terminal-body {
+        font-size: 0.75rem;
+        padding: 1rem;
+    }
+    
+    .terminal-line {
+        margin-bottom: 4px;
+    }
+    
+    .terminal-header {
+        padding: 8px 12px;
+    }
+    
+    .window-title {
+        font-size: 0.65rem;
+    }
 }
