@@ -2714,3 +2714,67 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
         text-align: left !important;
     }
 }
+
+/* ============================================================
+   IMPROVED MOBILE IMAGE RESPONSIVENESS
+   ============================================================ */
+
+/* Mobile: Photo Placeholders - Optimized for Small Screens */
+@media screen and (max-width: 640px) {
+    .photo-placeholder {
+        aspect-ratio: 4 / 3;
+        min-height: 200px;
+    }
+    
+    .photo-placeholder .user-photo {
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .placeholder-fallback {
+        padding: 2rem 1rem;
+    }
+    
+    .placeholder-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .placeholder-title {
+        font-size: 1rem;
+    }
+    
+    .placeholder-subtitle {
+        font-size: 0.8rem;
+        max-width: 280px;
+    }
+}
+
+/* Extra Small Mobile: 320px - 480px */
+@media screen and (max-width: 480px) {
+    .photo-placeholder {
+        aspect-ratio: 16 / 12;
+        min-height: 180px;
+    }
+    
+    .placeholder-fallback {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .placeholder-icon {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 0.75rem;
+    }
+    
+    .placeholder-title {
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .placeholder-subtitle {
+        font-size: 0.75rem;
+        max-width: 240px;
+        line-height: 1.4;
+    }
+}
