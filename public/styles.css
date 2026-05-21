@@ -487,7 +487,6 @@ code {
 }
 
 #placeholder-desktop {
-    min-height: 380px;
 }
 
 /* About Section */
@@ -1823,10 +1822,6 @@ code {
         font-size: 0.9rem;
     }
     
-    #placeholder-desktop {
-        min-height: 280px;
-    }
-    
     /* Section Headers */
     .section-header h2 {
         font-size: 2rem;
@@ -1998,10 +1993,6 @@ code {
         padding: 0.9rem;
         font-size: 0.85rem;
         border-radius: 6px;
-    }
-    
-    #placeholder-desktop {
-        min-height: 200px;
     }
     
     /* Section Headers */
