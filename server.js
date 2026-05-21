@@ -7,12 +7,13 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { Resend } = require('resend');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Initialize Resend with API key
-const resend = new Resend(process.env.RESEND_API_KEY || 're_2NV6jEvd_E5cRvG2NUzzd1q23ZangZ9Zf');
+// Initialize Resend with API key from environment
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // ── Middleware ────────────────────────────────────────────────────────────────
 app.use(bodyParser.json());
